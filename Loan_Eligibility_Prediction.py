@@ -71,49 +71,49 @@ data['Loan_Status'] = data['Loan_Status'].map({'Y':1,'N':0}).astype('int')
 data.head()
 
 import numpy as np
-#import seaborn as sns
+import seaborn as sns
 
 # Percentage of people of take loan by Gender
 
-#print("number of people who take loan as group by gender:")
-#print(data['Gender'].value_counts())
+print("number of people who take loan as group by gender:")
+print(data['Gender'].value_counts())
 
-#sns.countplot(x='Gender', data = data, palette = 'Set1')
+sns.countplot(x='Gender', data = data, palette = 'Set1')
 
 # Percentage of people of take loan by Marital Status
 
-#print("number of people who take loan as group by marital status:")
-#print(data['Married'].value_counts())
+print("number of people who take loan as group by marital status:")
+print(data['Married'].value_counts())
 
-#sns.countplot(x='Married', data = data, palette = 'Set1')
+sns.countplot(x='Married', data = data, palette = 'Set1')
 
 # Percentage of people of take loan by Dependents
 
-#print("number of people who take loan as group by dependents:")
-#print(data['Dependents'].value_counts())
+print("number of people who take loan as group by dependents:")
+print(data['Dependents'].value_counts())
 
-#sns.countplot(x='Dependents', data = data, palette = 'Set1')
+sns.countplot(x='Dependents', data = data, palette = 'Set1')
 
 # Percentage of people of take loan by Self_Employed
 
-#print("number of people who take loan as group by Self Employed:")
-#print(data['Self_Employed'].value_counts())
+print("number of people who take loan as group by Self Employed:")
+print(data['Self_Employed'].value_counts())
 
-#sns.countplot(x='Self_Employed', data = data, palette = 'Set1')
+sns.countplot(x='Self_Employed', data = data, palette = 'Set1')
 
 # Percentage of people of take loan by Loan_Amount
 
-#print("number of people who take loan as group by Loan Amount:")
-#print(data['LoanAmount'].value_counts())
+print("number of people who take loan as group by Loan Amount:")
+print(data['LoanAmount'].value_counts())
 
-#sns.countplot(x='LoanAmount', data = data, palette = 'Set1')
+sns.countplot(x='LoanAmount', data = data, palette = 'Set1')
 
 # Percentage of people of take loan by Credit History
 
-#print("number of people who take loan as group by Credit History:")
-#print(data['Credit_History'].value_counts())
+print("number of people who take loan as group by Credit History:")
+print(data['Credit_History'].value_counts())
 
-#sns.countplot(x='Credit_History', data = data, palette = 'Set1')
+sns.countplot(x='Credit_History', data = data, palette = 'Set1')
 
 X = data.drop('Loan_Status', axis=1)
 
@@ -123,9 +123,9 @@ X
 
 y
 
-#from sklearn.model_selection import train_test_split
-#from sklearn.model_selection import cross_val_score
-#from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+from sklearn.metrics import accuracy_score
 
 model_df = {}
 
@@ -158,7 +158,7 @@ def model_val(model,X,y):
 
 #  Logistic Regression
 
-#from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression
 
 model = LogisticRegression()
 
@@ -168,7 +168,7 @@ model_val(model,X,y)
 model_df
 
 #  Decision Tree Classifier
-#from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 model = DecisionTreeClassifier()
 model_val(model,X,y)
@@ -176,22 +176,22 @@ model_val(model,X,y)
 model_df
 
 #  SVC (Support Vector Classifier)
-#from sklearn import svm
+from sklearn import svm
 
 model = svm.SVC()
 model_val(model,X,y)
 
 model_df
- 
+
 #  Random Forest Classifier
-#from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 model =RandomForestClassifier()
 model_val(model,X,y)
 
 model_df
 
-#from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression
 import joblib
 
 

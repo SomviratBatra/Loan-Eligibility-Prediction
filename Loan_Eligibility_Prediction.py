@@ -158,7 +158,7 @@ def model_val(model,X,y):
 
 #  Logistic Regression
 
-from sklearn.linear_model import LogisticRegression
+#from sklearn.linear_model import LogisticRegression
 
 model = LogisticRegression()
 
@@ -168,7 +168,7 @@ model_val(model,X,y)
 model_df
 
 #  Decision Tree Classifier
-from sklearn.tree import DecisionTreeClassifier
+#from sklearn.tree import DecisionTreeClassifier
 
 model = DecisionTreeClassifier()
 model_val(model,X,y)
@@ -176,7 +176,7 @@ model_val(model,X,y)
 model_df
 
 #  SVC (Support Vector Classifier)
-from sklearn import svm
+#from sklearn import svm
 
 model = svm.SVC()
 model_val(model,X,y)
@@ -184,14 +184,14 @@ model_val(model,X,y)
 model_df
  
 #  Random Forest Classifier
-from sklearn.ensemble import RandomForestClassifier
+#from sklearn.ensemble import RandomForestClassifier
 
 model =RandomForestClassifier()
 model_val(model,X,y)
 
 model_df
 
-from sklearn.linear_model import LogisticRegression
+#from sklearn.linear_model import LogisticRegression
 import joblib
 
 

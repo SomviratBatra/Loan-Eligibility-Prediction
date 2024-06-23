@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
-from sklearn.linear_model import LogisticRegression
+import mymodel as m
 
 # Streamlit application
 st.title('Loan Eligibility Prediction')

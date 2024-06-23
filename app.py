@@ -35,7 +35,7 @@ user_input = pd.DataFrame({
 
 # Load the trained model
 
-with open('trained_model.pkl', 'wb') as file:
+with open('D:\Semester 6\ML\ML-Project\trained_model.pkl', 'wb') as file:
     model = pickle.load(file)
 
 # Make prediction

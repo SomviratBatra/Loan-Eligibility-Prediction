@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
-
+import sklearn 
 # Streamlit application
 st.title('Loan Eligibility Prediction')
 

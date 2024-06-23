@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 
 # Streamlit application
 st.title('Loan Eligibility Prediction')
@@ -35,7 +35,7 @@ user_input = pd.DataFrame({
 
 # Load the trained model
 with open('trained_model.pkl') as file:
-    model = pickle.load(file)
+    model = joblib.load(file)
 
 # Make prediction
 if st.button('Predict'):

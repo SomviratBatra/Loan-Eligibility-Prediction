@@ -34,7 +34,7 @@ user_input = pd.DataFrame({
 })
 
 # Load the trained model
-with open('trained_model.pkl') as file:
+with open('trained_model.pkl', 'rb') as file:  # Open in binary mode
     model = pickle.load(file)
 
 # Make prediction

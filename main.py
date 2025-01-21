@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+
 from sklearn.linear_model import LogisticRegression
 
 # Streamlit application title
@@ -12,10 +13,10 @@ married = st.selectbox('Married', ['Yes', 'No'])
 dependents = st.selectbox('Dependents', ['0', '1', '2', '3+'])
 education = st.selectbox('Education', ['Graduate', 'Not Graduate'])
 self_employed = st.selectbox('Self Employed', ['Yes', 'No'])
-applicant_income = st.number_input('Applicant Income', min_value=0)
-coapplicant_income = st.number_input('Coapplicant Income', min_value=0)
-loan_amount = st.number_input('Loan Amount', min_value=0)
-loan_amount_term = st.number_input('Loan Amount Term', min_value=0)
+applicant_income = st.number_input('Applicant Income', min_value=1, step=1)
+coapplicant_income = st.number_input('Coapplicant Income', min_value=0, step=1)
+loan_amount = st.number_input('Loan Amount', min_value=1, step=1)
+loan_amount_term = st.number_input('Loan Amount Term', min_value=1, step=1)
 credit_history = st.selectbox('Credit History', [1.0, 0.0])
 property_area = st.selectbox('Property Area', ['Urban', 'Semiurban', 'Rural'])
 
@@ -38,20 +39,17 @@ user_input = pd.DataFrame({
 try:
     with open('trained_model.pkl', 'rb') as file:
         model = pickle.load(file)
-    if not hasattr(model, 'coef_'):
-        st.error("Model is not trained. Please train the model before using it.")
 except FileNotFoundError:
     st.error("Model file not found. Please make sure 'trained_model.pkl' exists.")
+    st.stop()
 except Exception as e:
     st.error(f"Error loading model: {e}")
+    st.stop()
 
 # Make prediction
 if st.button('Predict'):
     try:
-        if hasattr(model, 'coef_'):
-            prediction = model.predict(user_input)
-            st.success(f'Loan Eligibility Prediction: {"Eligible" if prediction[0] == 1 else "Not Eligible"}')
-        else:
-            st.error("Model is not trained. Please train the model before using it.")
+        prediction = model.predict(user_input)
+        st.success(f'Loan Eligibility Prediction: {"Eligible" if prediction[0] == 1 else "Not Eligible"}')
     except Exception as e:
         st.error(f'Error predicting loan eligibility: {e}')
